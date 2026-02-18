@@ -1,0 +1,418 @@
+/* Custom Typography */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap');
+
+:root {
+    --nike-black: #111111;
+    --nike-orange: #FF6B00;
+    --nike-volt: #D2F53C;
+    --nike-blue: #005eff;
+    --nike-volta:rgb(60, 180, 245)C;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    color: var(--nike-black);
+}
+
+.main-logo {
+    height: 0px; /* Bigger logo */
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+.hero-section {
+    height: 100vh;
+    background: url('https://cdn.prod.website-files.com/67ab6f4970b90367b528f186/67c64fe310e0c7c8b4072fa1_e9e1fd85-istock-1169439855-1.webp') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); /* Nike-style slant */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 20%, transparent);
+}
+
+.hero-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 0.9;
+    color: white;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.text-stroke {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+}
+
+/* Magic Button Effect */
+.btn-magic {
+    background: transparent;
+    border: 2px solid var(--nike-volt);
+    color: white;
+    font-weight: 900;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.btn-magic:hover {
+    background: var(--nike-volt);
+    color: black;
+    box-shadow: 0 0 30px var(--nike-volt);
+}
+
+.btn-nike-primary {
+    background: white;
+    color: black;
+    font-weight: 900;
+    border-radius: 0;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-nike-primary:hover {
+    background: var(--nike-orange);
+    color: white;
+}
+
+/* Form Styling */
+.glass-form {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.form-control {
+    background: rgba(255,255,255,0.05);
+    border: none;
+    border-bottom: 2px solid #444;
+    color: white;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-color: var(--nike-volt);
+    box-shadow: none;
+}
+
+.poster-img {
+    transition: transform 0.5s;
+}
+
+.poster-img:hover {
+    transform: rotate(-2deg) scale(1.02);
+}
+
+.h-line {
+    width: 60px;
+    height: 5px;
+    background: var(--nike-volt);
+    margin-top: 10px;
+}
+
+/* --- Nike Athletic Countdown Styles --- */
+#countdown {
+    perspective: 1000px;
+}
+
+.timer-box {
+    background: var(--nike-volt); /* High visibility volt */
+    color: var(--nike-black);
+    padding: 15px 25px;
+    min-width: 90px;
+    transform: skewX(-10deg); /* Athletic slant */
+    border-radius: 4px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.3);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: nike-pulse 2s infinite ease-in-out;
+}
+
+.timer-box:hover {
+    transform: skewX(-10deg) scale(1.1) translateY(-10px);
+    box-shadow: 15px 15px 0px var(--nike-orange);
+}
+
+.timer-box span {
+    display: block;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    transform: skewX(10deg); /* Counter-slant the text to make it straight */
+}
+
+.timer-box small {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    transform: skewX(10deg);
+}
+
+/* "Cartoon-like" Springy Animation */
+@keyframes nike-pulse {
+    0%, 100% { transform: skewX(-10deg) scale(1); }
+    50% { transform: skewX(-10deg) scale(1.05); }
+}
+
+/* Stagger the animations for each box */
+.timer-box:nth-child(1) { animation-delay: 0.1s; }
+.timer-box:nth-child(2) { animation-delay: 0.2s; }
+.timer-box:nth-child(3) { animation-delay: 0.3s; }
+.timer-box:nth-child(4) { animation-delay: 0.4s; }
+
+/* --- Nike Poster Section Refinement --- */
+
+.poster-section {
+    background: #f4f4f4; /* Light gray background to make the white/volt pop */
+    z-index: 1;
+}
+
+/* Big background text for parallax feel */
+.bg-scroll-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20vw;
+    font-family: 'Archivo Black', sans-serif;
+    color: rgba(0, 0, 0, 0.03); /* Ghost text */
+    z-index: -1;
+    letter-spacing: -10px;
+}
+
+.nike-display-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.85;
+    font-style: italic;
+    text-transform: uppercase;
+    color: var(--nike-black);
+}
+
+.highlight-volt {
+    color: var(--nike-orange); /* Vibrant shift */
+    background: var(--nike-volt);
+    padding: 0 10px;
+    display: inline-block;
+}
+
+/* Floating Poster Effects */
+.poster-wrapper {
+    position: relative;
+    padding: 20px;
+}
+
+.poster-img-enhanced {
+    border-radius: 0; /* Nike prefers sharp edges or slight rounding */
+    transform: rotate(-3deg);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 2;
+    position: relative;
+}
+
+.poster-wrapper:hover .poster-img-enhanced {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.accent-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    background: var(--nike-volt);
+    z-index: 1;
+    transform: translate(20px, 20px);
+}
+
+/* Info Cards */
+.info-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 4px;
+    color: white;
+    transition: transform 0.3s ease;
+    border-left: 8px solid var(--nike-black);
+}
+
+.info-card:hover {
+    transform: translateX(10px) skewX(-5deg);
+}
+
+.info-card-volt {
+    background: #111;
+    color: var(--nike-volt);
+}
+
+.info-card-orange {
+    background: var(--nike-orange);
+    color: white;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.ls-wider { letter-spacing: 3px; }
+
+.start-time-badge, .location-badge {
+    background: #e0e0e0;
+    padding: 8px 15px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+
+.text-orange { color: var(--nike-orange); }
+
+/* Animation for the floating box */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.poster-wrapper {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* --- Utility Strip & Header Refinement --- */
+
+.utility-strip {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.85rem;
+    z-index: 1030;
+    position: relative;
+}
+
+.tracking-tighter {
+    letter-spacing: -0.5px;
+}
+
+.btn-mini-register {
+    background: var(--nike-black);
+    color: var(--nike-volt);
+    padding: 4px 15px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+.btn-mini-register:hover {
+    background: var(--nike-orange);
+    color: white;
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+}
+
+/* Header Sticky Adjustment */
+header.sticky-top {
+    top: 0;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Ensure Logo is prominent */
+.main-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .utility-strip {
+        text-align: center;
+    }
+    .main-logo {
+        height: 50px;
+    }
+}
+
+/* --- Vibrant Looping Ticker Styles --- */
+.utility-strip-container {
+    background: var(--nike-blue);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+    z-index: 1040;
+}
+
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.ticker {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker-loop 20s linear infinite; /* Constant motion */
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 0.85rem;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* The Loop Animation */
+@keyframes ticker-loop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Magic Floating Action Button in Strip */
+.utility-action {
+    position: absolute;
+    right: 20px;
+    background: var(--nike-blue);
+    padding-left: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* Creating a fade effect so the text looks like it slides behind the button */
+    box-shadow: -20px 0 20px var(--nike-volta); 
+}
+
+.magic-pulse {
+    animation: pulse-glow 2s infinite ease-in-out;
+    background: white !important;
+    color: var(--nike-orange) !important;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); transform: scale(1); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); transform: scale(1.05); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); transform: scale(1); }
+}
+
+/* Style adjustment to the logo header to separate it from the strip */
+header.sticky-top {
+    top: 40px; /* Moves down to accommodate the 40px ticker */
+    border-bottom: 2px solid var(--nike-volt);
+}
